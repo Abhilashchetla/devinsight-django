@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Signup</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h2>Signup Page</h2>
+{% block content %}
+
+<h2>Create Account</h2>
 
 <form method="POST">
-    {% csrf_token %}
-    
-    <label>Username:</label>
-    <input type="text" name="username"><br><br>
 
-    <label>Email:</label>
-    <input type="email" name="email"><br><br>
+{% csrf_token %}
 
-    <label>Password:</label>
-    <input type="password" name="password"><br><br>
+<div class="mb-3">
 
-    <button type="submit">Signup</button>
+<input class="form-control" type="text" name="username" placeholder="Username">
+
+</div>
+
+<div class="mb-3">
+
+<input class="form-control" type="password" name="password" placeholder="Password">
+
+</div>
+
+<button class="btn btn-success">Signup</button>
 
 </form>
 
-</body>
-</html>
+{% endblock %}

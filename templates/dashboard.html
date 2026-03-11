@@ -1,8 +1,47 @@
-<h1>Welcome to DevInsight Dashboard</h1>
+{% extends 'base.html' %}
 
-<p>You are logged in.</p>
+{% block content %}
 
-<a href="/upload-resume/">Upload Resume</a>
-<br>
-<a href="/github/">Analyze GitHub</a><br><br>
-<a href="/logout/">Logout</a>
+<h2>Welcome to DevInsight Dashboard</h2>
+
+<div class="row mt-4">
+
+<div class="col-md-6">
+
+<div class="card">
+
+<div class="card-body">
+
+<h5>Resume Analyzer</h5>
+
+<p>Upload your resume to extract skills.</p>
+
+<a class="btn btn-primary" href="/upload-resume/">Upload Resume</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card">
+
+<div class="card-body">
+
+<h5>GitHub Analyzer</h5>
+
+<p>Analyze your GitHub profile.</p>
+
+<a class="btn btn-success" href="/github/">Analyze GitHub</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
