@@ -8,9 +8,18 @@ def signup(request):
     if request.method == "POST":
 
         username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
 
-        User.objects.create_user(username=username, password=password)
+        if password != confirm_password:
+            return render(request, "signup.html", {"error": "Passwords do not match"})
+
+        User.objects.create_user(
+            username=username,
+            email=email,
+            password=password
+        )
 
         return redirect('login')
 

@@ -9,19 +9,29 @@
 {% csrf_token %}
 
 <div class="mb-3">
-
 <input class="form-control" type="text" name="username" placeholder="Username">
-
 </div>
 
 <div class="mb-3">
-
-<input class="form-control" type="password" name="password" placeholder="Password">
-
+<input class="form-control" type="email" name="email" placeholder="Email">
 </div>
 
-<button class="btn btn-success">Signup</button>
+<div class="mb-3">
+<input class="form-control" type="password" name="password" placeholder="Password">
+</div>
+
+<div class="mb-3">
+<input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password">
+</div>
+
+<button class="btn btn-success">Register</button>
 
 </form>
+
+<br>
+
+<p>Already have an account?</p>
+
+<a href="/login/" class="btn btn-primary">Login</a>
 
 {% endblock %}
