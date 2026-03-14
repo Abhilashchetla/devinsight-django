@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from accounts import views
+from django.conf.urls.static import static
+from resume import views as resume_views
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +27,9 @@ urlpatterns = [
     path('login/',views.login_view,name="login"),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('logout/', views.logout_view, name="logout"),
+    path('upload-resume/', resume_views.upload_resume, name="upload_resume"),
+
 
 
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
