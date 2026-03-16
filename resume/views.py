@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Resume
+from .utils import extract_text, extract_skills
 
 def upload_resume(request):
 
@@ -7,11 +8,16 @@ def upload_resume(request):
 
         file = request.FILES['resume']
 
-        Resume.objects.create(
+        resume = Resume.objects.create(
             user=request.user,
             file=file
         )
 
-        return render(request,"upload_success.html")
+        text = extract_text(resume.file.path)
+
+        skills = extract_skills(text)
+
+        return render(request,"resume_result.html",
+        {"skills":skills})
 
     return render(request,"upload_resume.html")

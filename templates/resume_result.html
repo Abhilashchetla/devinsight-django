@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Extracted Skills</h2>
+
+<ul>
+
+{% for skill in skills %}
+
+<li>{{ skill }}</li>
+
+{% endfor %}
+
+</ul>
+
+<a href="/dashboard/" class="btn btn-primary">Back</a>
+
+{% endblock %}
