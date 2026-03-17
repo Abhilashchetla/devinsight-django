@@ -2,18 +2,32 @@
 
 {% block content %}
 
-<h2>Extracted Skills</h2>
+<h2>Resume Skill Analysis</h2>
 
-<ul>
+{% for skill,score in skills.items %}
 
-{% for skill in skills %}
+<div class="mb-3">
 
-<li>{{ skill }}</li>
+<h5>{{ skill|title }}</h5>
+
+<div class="progress">
+
+<div class="progress-bar bg-success" 
+role="progressbar" 
+style="width: {{ score }}%">
+
+{{ score }}%
+
+</div>
+
+</div>
+
+</div>
 
 {% endfor %}
 
-</ul>
-
-<a href="/dashboard/" class="btn btn-primary">Back</a>
+<a href="/dashboard/" class="btn btn-primary mt-3">
+Back to Dashboard
+</a>
 
 {% endblock %}

@@ -11,25 +11,27 @@ def extract_text(file_path):
 
     return text
 
-skills = [
-    "python",
-    "django",
-    "sql",
-    "machine learning",
-    "data science",
-    "html",
-    "css",
-    "javascript"
-]
+skills = {
+    "python":90,
+    "django":80,
+    "sql":70,
+    "machine learning":75,
+    "data science":70,
+    "html":60,
+    "css":60,
+    "javascript":65,
+    "RESt APIS":60,
+    "Java":85
+}
 
 def extract_skills(text):
 
     text = text.lower()
 
-    found_skills = []
+    found_skills = {}
 
-    for skill in skills:
+    for skill,score in skills.items():
         if skill in text:
-            found_skills.append(skill)
+            found_skills[skill] = score
 
     return found_skills

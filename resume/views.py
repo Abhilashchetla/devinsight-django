@@ -17,7 +17,6 @@ def upload_resume(request):
 
         skills = extract_skills(text)
 
-        return render(request,"resume_result.html",
-        {"skills":skills})
+        return render(request, "resume_result.html", {"skills": skills})
 
-    return render(request,"upload_resume.html")
+    return render(request, "upload_resume.html")
