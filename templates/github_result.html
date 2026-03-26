@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>GitHub Analysis Result</h2>
+
+<div class="card p-3">
+
+<h4>Profile Summary</h4>
+
+<p><strong>Repositories:</strong> {{ repo_count }}</p>
+<p><strong>Stars:</strong> {{ total_stars }}</p>
+<p><strong>Top Language:</strong> {{ top_language }}</p>
+<p><strong>Profile Strength:</strong> {{ rating }}</p>
+
+</div>
+
+<div class="mt-4 text-center">
+    <a href="/dashboard/" class="btn btn-primary px-4">Back</a>
+</div>
+
+{% endblock %}

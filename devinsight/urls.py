@@ -20,6 +20,7 @@ from accounts import views
 from django.conf.urls.static import static
 from resume import views as resume_views
 from django.conf import settings
+from githubanalyzer import views as github_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name="dashboard"),
     path('logout/', views.logout_view, name="logout"),
     path('upload-resume/', resume_views.upload_resume, name="upload_resume"),
+    path('github/', github_views.github_analysis, name="github"),
 
 
 
