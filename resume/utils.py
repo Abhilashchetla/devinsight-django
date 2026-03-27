@@ -35,3 +35,29 @@ def extract_skills(text):
             found_skills[skill] = score
 
     return found_skills
+
+def calculate_score(found_skills):
+
+    total_possible = len(skills) * 10
+    score = len(found_skills) * 10
+
+    return int((score / total_possible) * 100)
+
+required_skills = [
+    "python",
+    "django",
+    "sql",
+    "docker",
+    "aws",
+    "javascript"
+    "Java"
+]
+def find_missing_skills(found_skills):
+
+    missing = []
+
+    for skill in required_skills:
+        if skill not in found_skills:
+            missing.append(skill)
+
+    return missing

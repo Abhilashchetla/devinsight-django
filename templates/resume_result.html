@@ -4,6 +4,14 @@
 
 <h2>Resume Skill Analysis</h2>
 
+<h3>Resume Score: {{ score }}%</h3>
+
+<div class="progress mb-4">
+    <div class="progress-bar bg-info" style="width: {{ score }}%">
+        {{ score }}%
+    </div>
+</div>
+
 {% for skill,score in skills.items %}
 
 <div class="mb-3">
@@ -25,6 +33,13 @@ style="width: {{ score }}%">
 </div>
 
 {% endfor %}
+<h4 class="mt-4">Missing Skills</h4>
+
+<ul>
+{% for skill in missing_skills %}
+<li>{{ skill|title }}</li>
+{% endfor %}
+</ul>
 
 <a href="/dashboard/" class="btn btn-primary mt-3">
 Back to Dashboard
