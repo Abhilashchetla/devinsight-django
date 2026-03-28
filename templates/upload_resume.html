@@ -4,6 +4,12 @@
 
 <h2>Upload Resume</h2>
 
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
 <form method="POST" enctype="multipart/form-data">
 
 {% csrf_token %}

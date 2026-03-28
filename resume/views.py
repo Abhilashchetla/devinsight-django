@@ -6,6 +6,11 @@ def upload_resume(request):
 
     if request.method == "POST":
 
+        if 'resume' not in request.FILES:
+            return render(request, "upload_resume.html", {
+                "error": "Please upload a resume file"
+            })
+
         file = request.FILES['resume']
 
         resume = Resume.objects.create(
@@ -16,9 +21,15 @@ def upload_resume(request):
         text = extract_text(resume.file.path)
 
         skills = extract_skills(text)
+
         score = calculate_score(skills)
+
         missing_skills = find_missing_skills(skills)
 
-        return render(request, "resume_result.html", {"skills": skills,"score":score,"missing_skills":missing_skills})
+        return render(request, "resume_result.html", {
+            "skills": skills,
+            "score": score,
+            "missing_skills": missing_skills
+        })
 
     return render(request, "upload_resume.html")

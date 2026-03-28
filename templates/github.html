@@ -4,6 +4,12 @@
 
 <h2>GitHub Analyzer</h2>
 
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
 <form method="POST">
 
 {% csrf_token %}

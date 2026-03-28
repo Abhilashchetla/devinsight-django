@@ -7,11 +7,29 @@ def github_analysis(request):
 
         username = request.POST['username']
 
-        url = f"https://api.github.com/users/{username}/repos"
+        if not username:
+            return render(request, "github.html", {
+                "error": "Please enter a GitHub username"
+            })
 
+        url = f"https://api.github.com/users/{username}/repos"
+        
         response = requests.get(url)
+
+        if response.status_code != 200:
+            return render(request, "github.html", {
+                "error": "Invalid GitHub username"
+            })
+
         repos = response.json()
 
+        # ✅ FIX: check first
+        if not isinstance(repos, list):
+            return render(request, "github.html", {
+                "error": "Something went wrong. Try again."
+            })
+
+        # ✅ Now safe to use
         repo_count = len(repos)
 
         total_stars = 0
@@ -26,10 +44,9 @@ def github_analysis(request):
             if lang:
                 languages[lang] = languages.get(lang, 0) + 1
 
-        # Find top language
         top_language = max(languages, key=languages.get) if languages else "N/A"
 
-        # Profile strength logic
+        # Rating logic
         if repo_count >= 15 and total_stars >= 20:
             rating = "Strong Profile 💪"
         elif repo_count >= 5:
@@ -41,8 +58,7 @@ def github_analysis(request):
             "repo_count": repo_count,
             "total_stars": total_stars,
             "top_language": top_language,
-            "rating":rating
+            "rating": rating
         })
-    
 
     return render(request, "github.html")
