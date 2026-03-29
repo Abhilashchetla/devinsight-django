@@ -32,16 +32,16 @@ DevInsight is a Django-based web application that analyzes resumes and GitHub pr
 ![Dashboard](screenshot/dashboard.png)
 
 ### 📄 Resume Upload
-![Resume Upload](screenshot/resume-upload.png)
+![Resume Upload](screenshot/resume_upload.png)
 
 ### 📈 Resume Analysis Result
-![Resume Result](screenshot/resume-result.png)
+![Resume Result](screenshot/resume_result.png)
 
 ### 🧠 GitHub Username Input
-![GitHub Input](screenshot/github-username.png)
+![GitHub Input](screenshot/github_username.png)
 
 ### ⭐ GitHub Analysis Result
-![GitHub Result](screenshot/github-result.png)
+![GitHub Result](screenshot/github_result.png)
 
 ## 🙌 Author
 Chetla Abhilash
